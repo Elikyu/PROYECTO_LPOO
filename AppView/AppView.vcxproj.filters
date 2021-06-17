@@ -77,7 +77,10 @@
     <ClCompile Include="ComboBoxItem2.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="IForm.cpp">
+    <ClCompile Include="AccesoUbiDes.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="AccesoUbicacionDestino.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -139,13 +142,19 @@
     <ClInclude Include="ComboBoxItem2.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="IForm.h">
+    <ClInclude Include="AccesoUbiDes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="AccesoUbicacionDestino.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Boleta.resx">
       <Filter>Archivos de recursos</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccesoUbiDes.resx">
+      <Filter>Archivos de encabezado</Filter>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
