@@ -263,19 +263,22 @@ namespace AppView {
 				//List<Groceries^>^ groceriesList = AppManager::QueryAllGroceries();
 				//List<HealthCare^>^ healthCareList = AppManager::QueryAllHealthCare();
 				List<Product^>^ productsList = AppManager::QueryAllProducts();
+				if (productsList != nullptr) {
 					for (int i = 0; i < productsList->Count; i++) {
 						barchartStockProducts->Series["Stock"]->Points->Add(productsList[i]->StockTotal);
 						barchartStockProducts->Series["Stock"]->Points[i]->AxisLabel = productsList[i]->Name;
 						barchartStockProducts->Series["Stock"]->Points[i]->LegendText = productsList[i]->Name;
 						barchartStockProducts->Series["Stock"]->Points[i]->Label = "" + productsList[i]->StockTotal;
 					}
-
+				}
 				List<Order^>^ orderList = AppManager::QueryAllSales();
-				for (int i = 0; i < orderList->Count; i++) {
-					linechartIncome->Series["Montos"]->Points->Add(orderList[i]->Total);
-					linechartIncome->Series["Montos"]->Points[i]->AxisLabel = "" + orderList[i]->Id;
-					linechartIncome->Series["Montos"]->Points[i]->LegendText = "" + orderList[i]->Id;
-					linechartIncome->Series["Montos"]->Points[i]->Label = "" + orderList[i]->Total;
+				if (orderList != nullptr) {
+					for (int i = 0; i < orderList->Count; i++) {
+						linechartIncome->Series["Montos"]->Points->Add(orderList[i]->Total);
+						linechartIncome->Series["Montos"]->Points[i]->AxisLabel = "" + orderList[i]->Id;
+						linechartIncome->Series["Montos"]->Points[i]->LegendText = "" + orderList[i]->Id;
+						linechartIncome->Series["Montos"]->Points[i]->Label = "" + orderList[i]->Total;
+					}
 				}
 		}
 	};
