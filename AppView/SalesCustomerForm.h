@@ -51,7 +51,6 @@ namespace AppView {
 	private: System::Windows::Forms::DataGridViewImageColumn^ ViewBoleta;
 	private: System::Windows::Forms::DataGridViewImageColumn^ Confirm;
 	private: System::Windows::Forms::Button^ refresh;
-	private: System::Windows::Forms::DataGridViewImageColumn^ ViewBoleta;
 
 	public:
 
