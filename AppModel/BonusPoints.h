@@ -21,3 +21,4 @@ namespace AppModel {
        BonusPoints(int pointsQuantity, int solesQuantity, double percentageDiscount, int pointsEarned);
     };
 }
+ // Hola
