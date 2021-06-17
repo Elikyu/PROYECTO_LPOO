@@ -618,6 +618,9 @@ namespace AppView {
 	private: System::Void btnShoppingcart_Click(System::Object^ sender, System::EventArgs^ e) {
 		CarritoCustomerForm^ carrito = gcnew CarritoCustomerForm();
 		carrito->textUserNameCS->Text = textUserNameC->Text;
+		int customerId = UserManager::ReturnIDbyUserName(textUserNameC->Text);
+		User^ u = UserManager::QueryUserbyId(customerId);
+		carrito->txtSAddres->Text = u->Address;
 		this->AbrirPanel(carrito);
 		
 	

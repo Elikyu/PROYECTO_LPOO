@@ -9,6 +9,7 @@ System::Void AppView::CarritoCustomerForm::btnASCustom_Click(System::Object^ sen
 	int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
 	User^ u = UserManager::QueryUserbyId(customerId);
 	aForm->txtAddressC->Text = u->Address;
+	aForm->txtUSER->Text = u->Username;
 	aForm->ShowDialog();
 }
 

@@ -51,6 +51,7 @@ namespace AppView {
 	private: System::Windows::Forms::TextBox^ txtCustomAddressC;
 	private: System::Windows::Forms::TextBox^ txtArrivalTimeC;
 	public: System::Windows::Forms::TextBox^ txtAddressC;
+	public: System::Windows::Forms::TextBox^ txtUSER;
 
 	private:
 
@@ -84,6 +85,7 @@ namespace AppView {
 			this->txtCustomAddressC = (gcnew System::Windows::Forms::TextBox());
 			this->txtArrivalTimeC = (gcnew System::Windows::Forms::TextBox());
 			this->txtAddressC = (gcnew System::Windows::Forms::TextBox());
+			this->txtUSER = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -164,6 +166,7 @@ namespace AppView {
 			this->txtArrivalTimeC->ReadOnly = true;
 			this->txtArrivalTimeC->Size = System::Drawing::Size(174, 20);
 			this->txtArrivalTimeC->TabIndex = 9;
+			this->txtArrivalTimeC->TextChanged += gcnew System::EventHandler(this, &Ubicacion::txtArrivalTimeC_TextChanged);
 			// 
 			// txtAddressC
 			// 
@@ -175,12 +178,21 @@ namespace AppView {
 			this->txtAddressC->TabIndex = 10;
 			this->txtAddressC->TextChanged += gcnew System::EventHandler(this, &Ubicacion::txtAddressC_TextChanged);
 			// 
+			// txtUSER
+			// 
+			this->txtUSER->Location = System::Drawing::Point(631, 12);
+			this->txtUSER->Name = L"txtUSER";
+			this->txtUSER->ReadOnly = true;
+			this->txtUSER->Size = System::Drawing::Size(25, 20);
+			this->txtUSER->TabIndex = 11;
+			// 
 			// Ubicacion
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::InactiveCaption;
 			this->ClientSize = System::Drawing::Size(771, 376);
+			this->Controls->Add(this->txtUSER);
 			this->Controls->Add(this->txtAddressC);
 			this->Controls->Add(this->txtArrivalTimeC);
 			this->Controls->Add(this->txtCustomAddressC);
@@ -206,13 +218,7 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 }*/
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void btnAddressCheck_Click_Click(System::Object^ sender, System::EventArgs^ e) {
-	//int customerId = UserManager::ReturnIDbyUserName(txtUSER->Text);
-	//User^ u = UserManager::QueryUserbyId(customerId);
-	//CarritoCustomerForm^ form = gcnew CarritoCustomerForm();
-	//form->txtSAddres->Text = u->Address;
-	this->Close();
-}
+private: System::Void btnAddressCheck_Click_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void txtCustomAddressC_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 	if (e->KeyData == Keys::Enter)
@@ -249,6 +255,9 @@ private: System::Void txtAddressC_TextChanged(System::Object^ sender, System::Ev
 }
 private: System::Void Ubicacion_Load(System::Object^ sender, System::EventArgs^ e) {
 	txtCustomAddressC->Enabled = false;
+}
+private: System::Void txtArrivalTimeC_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }
