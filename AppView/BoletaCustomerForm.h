@@ -295,11 +295,8 @@ namespace AppView {
 			   txtUser->Text = order->User->FirstName + " " + order->User->LastName;
 			   txtDocumentNumber->Text = order->User->DocumentNumber;
 			   textDateTimeB->Text = order->Date;
-<<<<<<< HEAD
-=======
 			   txtTotal->Text =  "" + order->Total;
 			   txtPaymentType->Text = "Tarjeta";
->>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 			   
 
 			   //txtTotal->Text=
