@@ -146,6 +146,7 @@
     <ClCompile Include="BonusPointsForm.cpp" />
     <ClCompile Include="CarritoCustomerForm.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
+    <ClCompile Include="ComboBoxItem2.cpp" />
     <ClCompile Include="CustomerMainForm.cpp" />
     <ClCompile Include="CustomerRatingForm.cpp" />
     <ClCompile Include="DeliveryForm.cpp" />
@@ -176,6 +177,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ComboBoxItem.h" />
+    <ClInclude Include="ComboBoxItem2.h" />
     <ClInclude Include="CustomerMainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

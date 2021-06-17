@@ -2,6 +2,7 @@
 #include "Ubicacion.h"
 #include "ProductsCustomerForm.h"
 #include "ComboBoxItem.h"
+#include "ComboBoxItem2.h"
 #include "Boleta.h"
 
 
@@ -408,19 +409,15 @@ namespace AppView {
 
 
 private: System::Void CarritoCustomerForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	LoadCmbCustomer();
+	LoadCmbPayment();
 	LoadCmbBoints();
 	RefreshDGVCarrito();
 	
 	
 }
 
-void LoadCmbCustomer() {
-	//cmbB->Items->Clear();
-	Customer^ c = gcnew Customer();
-	//for(int i=0; customerList->Count;i++)
-	//cmbBoxASUbication->Items->Add(gcnew ComboBoxItem(c->Address, "Mi dirección"));
-    //cmbBoxASUbication->Items->Add(gcnew ComboBoxItem(c->Address,"Personalizar"));
+void LoadCmbPayment() {
+    cmbTypePayment->Items->Add(gcnew ComboBoxItem2("Tarjeta"));
 
 }
 void LoadCmbBoints() {
