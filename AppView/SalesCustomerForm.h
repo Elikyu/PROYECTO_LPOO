@@ -215,6 +215,7 @@ private: System::Void dgvSales_CellContentClick(System::Object^ sender, System::
 
 		BoletaCustomerForm^ form =gcnew BoletaCustomerForm();
 		form->txtIdSale->Text = a;
+
 		form->Show();
 		
 

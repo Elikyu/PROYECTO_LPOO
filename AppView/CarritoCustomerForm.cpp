@@ -56,9 +56,15 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 			saledetail->Quantity = Double::Parse(dgvCarrito->Rows[i]->Cells[1]->Value->ToString());
 			saledetail->UnitPrice = Double::Parse(dgvCarrito->Rows[i]->Cells[2]->Value->ToString());
 			saledetail->SubTotal = Double::Parse(dgvCarrito->Rows[i]->Cells[3]->Value->ToString());
+			saledetail->Total = Double::Parse(txtTotalSale->Text);
 			sale->Details->Add(saledetail);
 
-			
+			//String^ namep = order->Details[i]->Product->Name;
+			double qua = Double::Parse(dgvCarrito->Rows[i]->Cells[1]->Value->ToString());
+			//int productId = AppManager::ReturnIDbyProductName(namep);
+			Product^ product = AppManager::QueryProductById(productId);
+			product->StockTotal = product->StockTotal - qua;
+			AppManager::UpdateProduct(product);
 		}
 		
 		

@@ -295,6 +295,7 @@ namespace AppView {
 			   txtUser->Text = order->User->FirstName + " " + order->User->LastName;
 			   txtDocumentNumber->Text = order->User->DocumentNumber;
 			   textDateTimeB->Text = order->Date;
+			   txtTotal->Text =  "" + order->Total;
 			   
 
 			   //txtTotal->Text=
