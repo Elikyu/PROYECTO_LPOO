@@ -23,8 +23,8 @@ System::Void AppView::Login::btnLogin_Click(System::Object^ sender, System::Even
 			//string newString = ss.str();
 			form->txtNameC->Text = user->FirstName + " " + user->LastName;
 			form->textUserNameC->Text = user->Username;
-			
-			
+
+
 		}
 		else if (user->Category->Equals("Repartidor")) {
 			MessageBox::Show("Bienvenido " + user->FirstName + " " + user->LastName + " : " + user->Category);
@@ -41,10 +41,11 @@ System::Void AppView::Login::btnLogin_Click(System::Object^ sender, System::Even
 			ManagerMainForm^ form = gcnew ManagerMainForm();
 			form->Show();
 		}
-		else {
+	} 
+	else {
 			MessageBox::Show("Usuario y/o contraseña incorrecto(s)");
-		}
 	}
+	
 }
 
 System::Void AppView::Login::txtPassword_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)

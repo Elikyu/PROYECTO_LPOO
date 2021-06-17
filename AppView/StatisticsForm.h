@@ -1,7 +1,6 @@
 #pragma once
-using namespace AppModel;
-using namespace AppController;
-using namespace System::Collections::Generic;
+#define MODEGROCERIES 2
+#define MODEHEALTH 3
 
 namespace AppView {
 
@@ -11,6 +10,9 @@ namespace AppView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace AppModel;
+	using namespace AppController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de StatisticsForm
@@ -48,8 +50,8 @@ namespace AppView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TabControl^ tabControl1;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ barchartStockProducts;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::ComboBox^ cmbChartCattegory;
+
+
 
 
 	protected:
@@ -109,18 +111,16 @@ namespace AppView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tabIncome = (gcnew System::Windows::Forms::TabPage());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->linechartIncome = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tabSoldProducts = (gcnew System::Windows::Forms::TabPage());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->cmbChartCattegory = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->barchartStockProducts = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
@@ -157,32 +157,30 @@ namespace AppView {
 			// linechartIncome
 			// 
 			this->linechartIncome->BorderlineWidth = 0;
-			chartArea3->AxisX->MajorGrid->LineColor = System::Drawing::Color::White;
-			chartArea3->AxisX->MajorTickMark->LineColor = System::Drawing::Color::White;
-			chartArea3->AxisY->MajorGrid->LineColor = System::Drawing::Color::White;
-			chartArea3->AxisY->MinorGrid->LineColor = System::Drawing::Color::Transparent;
-			chartArea3->AxisY->MinorTickMark->LineColor = System::Drawing::Color::Transparent;
-			chartArea3->Name = L"ChartArea1";
-			this->linechartIncome->ChartAreas->Add(chartArea3);
-			legend3->Name = L"Legend1";
-			this->linechartIncome->Legends->Add(legend3);
+			chartArea1->AxisX->MajorGrid->LineColor = System::Drawing::Color::White;
+			chartArea1->AxisX->MajorTickMark->LineColor = System::Drawing::Color::White;
+			chartArea1->AxisY->MajorGrid->LineColor = System::Drawing::Color::White;
+			chartArea1->AxisY->MinorGrid->LineColor = System::Drawing::Color::Transparent;
+			chartArea1->AxisY->MinorTickMark->LineColor = System::Drawing::Color::Transparent;
+			chartArea1->Name = L"ChartArea1";
+			this->linechartIncome->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->linechartIncome->Legends->Add(legend1);
 			this->linechartIncome->Location = System::Drawing::Point(6, 37);
 			this->linechartIncome->Name = L"linechartIncome";
-			series3->BorderWidth = 5;
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series3->Color = System::Drawing::Color::Red;
-			series3->Legend = L"Legend1";
-			series3->Name = L"Montos";
-			this->linechartIncome->Series->Add(series3);
+			series1->BorderWidth = 5;
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series1->Color = System::Drawing::Color::Red;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Montos";
+			this->linechartIncome->Series->Add(series1);
 			this->linechartIncome->Size = System::Drawing::Size(412, 267);
 			this->linechartIncome->TabIndex = 1;
 			this->linechartIncome->Text = L"chartIncome";
 			// 
 			// tabSoldProducts
 			// 
-			this->tabSoldProducts->Controls->Add(this->label3);
-			this->tabSoldProducts->Controls->Add(this->cmbChartCattegory);
 			this->tabSoldProducts->Controls->Add(this->label1);
 			this->tabSoldProducts->Controls->Add(this->barchartStockProducts);
 			this->tabSoldProducts->Location = System::Drawing::Point(4, 22);
@@ -192,23 +190,6 @@ namespace AppView {
 			this->tabSoldProducts->TabIndex = 0;
 			this->tabSoldProducts->Text = L"Stock de productos";
 			this->tabSoldProducts->UseVisualStyleBackColor = true;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(29, 9);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(54, 13);
-			this->label3->TabIndex = 3;
-			this->label3->Text = L"Categoría";
-			// 
-			// cmbChartCattegory
-			// 
-			this->cmbChartCattegory->FormattingEnabled = true;
-			this->cmbChartCattegory->Location = System::Drawing::Point(98, 6);
-			this->cmbChartCattegory->Name = L"cmbChartCattegory";
-			this->cmbChartCattegory->Size = System::Drawing::Size(121, 21);
-			this->cmbChartCattegory->TabIndex = 2;
 			// 
 			// label1
 			// 
@@ -224,23 +205,23 @@ namespace AppView {
 			// barchartStockProducts
 			// 
 			this->barchartStockProducts->BorderlineWidth = 0;
-			chartArea4->AxisX->MajorGrid->LineColor = System::Drawing::Color::White;
-			chartArea4->AxisX->MajorTickMark->LineColor = System::Drawing::Color::White;
-			chartArea4->AxisY->MajorGrid->LineColor = System::Drawing::Color::White;
-			chartArea4->AxisY->MinorGrid->LineColor = System::Drawing::Color::Transparent;
-			chartArea4->AxisY->MinorTickMark->LineColor = System::Drawing::Color::Transparent;
-			chartArea4->Name = L"ChartArea1";
-			this->barchartStockProducts->ChartAreas->Add(chartArea4);
-			legend4->Name = L"Legend1";
-			this->barchartStockProducts->Legends->Add(legend4);
+			chartArea2->AxisX->MajorGrid->LineColor = System::Drawing::Color::White;
+			chartArea2->AxisX->MajorTickMark->LineColor = System::Drawing::Color::White;
+			chartArea2->AxisY->MajorGrid->LineColor = System::Drawing::Color::White;
+			chartArea2->AxisY->MinorGrid->LineColor = System::Drawing::Color::Transparent;
+			chartArea2->AxisY->MinorTickMark->LineColor = System::Drawing::Color::Transparent;
+			chartArea2->Name = L"ChartArea1";
+			this->barchartStockProducts->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->barchartStockProducts->Legends->Add(legend2);
 			this->barchartStockProducts->Location = System::Drawing::Point(23, 39);
 			this->barchartStockProducts->Name = L"barchartStockProducts";
-			series4->ChartArea = L"ChartArea1";
-			series4->Color = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			series2->ChartArea = L"ChartArea1";
+			series2->Color = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			series4->Legend = L"Legend1";
-			series4->Name = L"Stock";
-			this->barchartStockProducts->Series->Add(series4);
+			series2->Legend = L"Legend1";
+			series2->Name = L"Stock";
+			this->barchartStockProducts->Series->Add(series2);
 			this->barchartStockProducts->Size = System::Drawing::Size(412, 267);
 			this->barchartStockProducts->TabIndex = 0;
 			this->barchartStockProducts->Text = L"chartStockProduct";
@@ -277,28 +258,27 @@ namespace AppView {
 		}
 #pragma endregion
 		private: System::Void StatisticsForm_Load(System::Object^ sender, System::EventArgs^ e) {
-				List<Groceries^>^ groceriesList = AppManager::QueryAllGroceries();
-				List<HealthCare^>^ healthCareList = AppManager::QueryAllHealthCare();
-					for (int i = 0; i < groceriesList->Count; i++) {
-						barchartStockProducts->Series["Stock"]->Points->Add(groceriesList[i]->StockTotal);
-						barchartStockProducts->Series["Stock"]->Points[i]->AxisLabel = groceriesList[i]->Name;
-						barchartStockProducts->Series["Stock"]->Points[i]->LegendText = groceriesList[i]->Name;
-						barchartStockProducts->Series["Stock"]->Points[i]->Label = "" + groceriesList[i]->StockTotal;
-					}
 
-					for (int i = 0; i < healthCareList->Count; i++) {
-						barchartStockProducts->Series["Stock"]->Points->Add(healthCareList[i]->StockTotal);
-						barchartStockProducts->Series["Stock"]->Points[i]->AxisLabel = healthCareList[i]->Name;
-						barchartStockProducts->Series["Stock"]->Points[i]->LegendText = healthCareList[i]->Name;
-						barchartStockProducts->Series["Stock"]->Points[i]->Label = "" + healthCareList[i]->StockTotal;
-					}
 
+				//List<Groceries^>^ groceriesList = AppManager::QueryAllGroceries();
+				//List<HealthCare^>^ healthCareList = AppManager::QueryAllHealthCare();
+				List<Product^>^ productsList = AppManager::QueryAllProducts();
+				if (productsList != nullptr) {
+					for (int i = 0; i < productsList->Count; i++) {
+						barchartStockProducts->Series["Stock"]->Points->Add(productsList[i]->StockTotal);
+						barchartStockProducts->Series["Stock"]->Points[i]->AxisLabel = productsList[i]->Name;
+						barchartStockProducts->Series["Stock"]->Points[i]->LegendText = productsList[i]->Name;
+						barchartStockProducts->Series["Stock"]->Points[i]->Label = "" + productsList[i]->StockTotal;
+					}
+				}
 				List<Order^>^ orderList = AppManager::QueryAllSales();
-				for (int i = 0; i < orderList->Count; i++) {
-					linechartIncome->Series["Montos"]->Points->Add(orderList[i]->Total);
-					linechartIncome->Series["Montos"]->Points[i]->AxisLabel = "" + orderList[i]->Id;
-					linechartIncome->Series["Montos"]->Points[i]->LegendText = "" + orderList[i]->Id;
-					linechartIncome->Series["Montos"]->Points[i]->Label = "" + orderList[i]->Total;
+				if (orderList != nullptr) {
+					for (int i = 0; i < orderList->Count; i++) {
+						linechartIncome->Series["Montos"]->Points->Add(orderList[i]->Total);
+						linechartIncome->Series["Montos"]->Points[i]->AxisLabel = "" + orderList[i]->Id;
+						linechartIncome->Series["Montos"]->Points[i]->LegendText = "" + orderList[i]->Id;
+						linechartIncome->Series["Montos"]->Points[i]->Label = "" + orderList[i]->Total;
+					}
 				}
 		}
 	};
