@@ -455,13 +455,25 @@ private: System::Void dgvCarrito_CellValueChanged(System::Object^ sender, System
 		if (dgvCarrito->CurrentCell != nullptr &&
 			dgvCarrito->CurrentCell->Value != nullptr &&
 			dgvCarrito->CurrentCell->Value->ToString() != "") {
-			dgvCarrito->Rows[e->RowIndex]->Cells[3]->Value =
-				Int32::Parse(dgvCarrito->CurrentCell->Value->ToString())*Double::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[2]->Value->ToString());
-			cantidad = Int32::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[1]->Value->ToString());
-			double total = 0;
-			for (int i = 0; i < dgvCarrito->RowCount; i++)
-				total += Double::Parse(dgvCarrito->Rows[i]->Cells[3]->Value->ToString());
-			txtTotalSale->Text = "" + total;
+
+			String^ product =dgvCarrito->Rows[e->RowIndex]->Cells[0]->Value->ToString();
+			int productId = AppManager::ReturnIDbyProductName(product);
+			Product^ p = AppManager::QueryProductById(productId);
+			if (p->StockTotal >= Int32::Parse(dgvCarrito->CurrentCell->Value->ToString())) {
+
+				dgvCarrito->Rows[e->RowIndex]->Cells[3]->Value =
+					Int32::Parse(dgvCarrito->CurrentCell->Value->ToString()) * Double::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[2]->Value->ToString());
+				cantidad = Int32::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[1]->Value->ToString());
+				double total = 0;
+				for (int i = 0; i < dgvCarrito->RowCount; i++)
+					total += Double::Parse(dgvCarrito->Rows[i]->Cells[3]->Value->ToString());
+				txtTotalSale->Text = "" + total;
+			}
+			else {
+				MessageBox::Show("El producto de " + p->Name +" presenta solo el siguiente Stock: " + p->StockTotal);
+				dgvCarrito->CurrentCell->Value = "1";
+
+			}
 		}
 
 	}
