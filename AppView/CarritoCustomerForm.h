@@ -1,5 +1,5 @@
 #pragma once
-#include "Ubicacion.h"
+
 #include "ProductsCustomerForm.h"
 #include "ComboBoxItem.h"
 #include "ComboBoxItem2.h"
@@ -412,7 +412,7 @@ private: System::Void CarritoCustomerForm_Load(System::Object^ sender, System::E
 	LoadCmbPayment();
 	LoadCmbBoints();
 	RefreshDGVCarrito();
-	
+
 	
 }
 
@@ -421,13 +421,21 @@ void LoadCmbPayment() {
 
 }
 void LoadCmbBoints() {
-	cmbBoxBPSelect->Items->Clear();
+	cmbBoxBPSelect->Items->Clear(); 
 	List<BonusPoints^>^ bpList = AppManager::QueryAllBonusPointsPQ();
 	for (int i = 0; i< bpList->Count; i++)
 		cmbBoxBPSelect->Items->Add(gcnew ComboBoxItem(bpList[i]->PointsQuantity, ""));
+	/*
+	int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
+	Customer^ c = UserManager::QueryCustomerbyId(customerId);
+	//int iniCbp = 0;
+	c->CustomerPoints = 0;
+	txtBPAvailable->Text = "" + c->CustomerPoints;
+	*/
 }
 
 public: void RefreshDGVCarrito() {
+
 			   List <Product^>^ productList = AppManager::QueryAllCarrito();
 			   dgvCarrito->Rows->Clear();
 			   for (int i = 0; i < productList->Count; i++) {
@@ -443,10 +451,8 @@ public: void RefreshDGVCarrito() {
 				    txtTotalSale->Text = "" + total;
 			   }
 		   }
-private: System::Void btnASCustom_Click(System::Object^ sender, System::EventArgs^ e) {
-	Ubicacion^ aForm = gcnew Ubicacion();
-	aForm->ShowDialog();
-}
+private: System::Void btnASCustom_Click(System::Object^ sender, System::EventArgs^ e);
+
 private: System::Void dgvCarrito_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	if (dgvCarrito->Columns[e->ColumnIndex]->Name == "Quantity") {
 		if (dgvCarrito->CurrentCell != nullptr &&

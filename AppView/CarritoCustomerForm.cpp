@@ -1,6 +1,16 @@
 #include "CarritoCustomerForm.h"
 #include "Login.h"
+#include "Ubicacion.h"
 
+
+System::Void AppView::CarritoCustomerForm::btnASCustom_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	Ubicacion^ aForm = gcnew Ubicacion();
+	int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
+	User^ u = UserManager::QueryUserbyId(customerId);
+	aForm->txtAddressC->Text = u->Address;
+	aForm->ShowDialog();
+}
 
 int AppView::CarritoCustomerForm::ValidateInfo() {
 	//-1: No se ha elegido una direccion
