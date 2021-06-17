@@ -8,6 +8,9 @@ namespace AppView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace AppModel;
+	using namespace AppController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de CustomerRatingForm
@@ -35,10 +38,12 @@ namespace AppView {
 			}
 		}
 	private: System::Windows::Forms::Button^ btnFinalize;
+	private: System::Windows::Forms::TextBox^ txtCustomerRating;
 	protected:
-	private: System::Windows::Forms::TextBox^ txtDeliverymanRating;
+
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ txtDeliverymanName;
+	private: System::Windows::Forms::TextBox^ txtCustomerName;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -48,6 +53,9 @@ namespace AppView {
 	private: System::Windows::Forms::PictureBox^ pbThreeStars;
 	private: System::Windows::Forms::PictureBox^ pbFourStars;
 	private: System::Windows::Forms::PictureBox^ pbFiveStars;
+	private: System::Windows::Forms::Label^ label5;
+	public: System::Windows::Forms::TextBox^ txtIdSale;
+	private:
 
 	private:
 		/// <summary>
@@ -64,9 +72,9 @@ namespace AppView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(CustomerRatingForm::typeid));
 			this->btnFinalize = (gcnew System::Windows::Forms::Button());
-			this->txtDeliverymanRating = (gcnew System::Windows::Forms::TextBox());
+			this->txtCustomerRating = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->txtDeliverymanName = (gcnew System::Windows::Forms::TextBox());
+			this->txtCustomerName = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -76,6 +84,8 @@ namespace AppView {
 			this->pbThreeStars = (gcnew System::Windows::Forms::PictureBox());
 			this->pbFourStars = (gcnew System::Windows::Forms::PictureBox());
 			this->pbFiveStars = (gcnew System::Windows::Forms::PictureBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->txtIdSale = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbZeroStars))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbOneStar))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbTwoStars))->BeginInit();
@@ -92,13 +102,15 @@ namespace AppView {
 			this->btnFinalize->TabIndex = 24;
 			this->btnFinalize->Text = L"Finalizar";
 			this->btnFinalize->UseVisualStyleBackColor = true;
+			this->btnFinalize->Click += gcnew System::EventHandler(this, &CustomerRatingForm::btnFinalize_Click);
 			// 
-			// txtDeliverymanRating
+			// txtCustomerRating
 			// 
-			this->txtDeliverymanRating->Location = System::Drawing::Point(367, 198);
-			this->txtDeliverymanRating->Name = L"txtDeliverymanRating";
-			this->txtDeliverymanRating->Size = System::Drawing::Size(100, 20);
-			this->txtDeliverymanRating->TabIndex = 23;
+			this->txtCustomerRating->Location = System::Drawing::Point(367, 198);
+			this->txtCustomerRating->Name = L"txtCustomerRating";
+			this->txtCustomerRating->Size = System::Drawing::Size(100, 20);
+			this->txtCustomerRating->TabIndex = 23;
+			this->txtCustomerRating->TextChanged += gcnew System::EventHandler(this, &CustomerRatingForm::txtCustomerRating_TextChanged);
 			// 
 			// label4
 			// 
@@ -111,17 +123,17 @@ namespace AppView {
 				L"de \r\n(1) Totalmente insatisfecho\r\n(2) Insatisfecho\r\n(3) Neutral\r\n(4) Satisfecho\r"
 				L"\n(5) Totalmente satisfecho";
 			// 
-			// txtDeliverymanName
+			// txtCustomerName
 			// 
-			this->txtDeliverymanName->Location = System::Drawing::Point(140, 60);
-			this->txtDeliverymanName->Name = L"txtDeliverymanName";
-			this->txtDeliverymanName->Size = System::Drawing::Size(327, 20);
-			this->txtDeliverymanName->TabIndex = 21;
+			this->txtCustomerName->Location = System::Drawing::Point(140, 72);
+			this->txtCustomerName->Name = L"txtCustomerName";
+			this->txtCustomerName->Size = System::Drawing::Size(327, 20);
+			this->txtCustomerName->TabIndex = 21;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(26, 85);
+			this->label3->Location = System::Drawing::Point(26, 97);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(64, 13);
 			this->label3->TabIndex = 19;
@@ -130,7 +142,7 @@ namespace AppView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(26, 60);
+			this->label2->Location = System::Drawing::Point(26, 72);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(95, 13);
 			this->label2->TabIndex = 20;
@@ -139,11 +151,11 @@ namespace AppView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Poor Richard", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(126, 19);
+			this->label1->Location = System::Drawing::Point(123, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(238, 22);
+			this->label1->Size = System::Drawing::Size(250, 24);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"CALIFICACIÓN AL CLIENTE";
 			// 
@@ -201,16 +213,34 @@ namespace AppView {
 			this->pbFiveStars->TabIndex = 12;
 			this->pbFiveStars->TabStop = false;
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(26, 47);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(49, 13);
+			this->label5->TabIndex = 26;
+			this->label5->Text = L"Id. venta";
+			// 
+			// txtIdSale
+			// 
+			this->txtIdSale->Location = System::Drawing::Point(142, 47);
+			this->txtIdSale->Name = L"txtIdSale";
+			this->txtIdSale->Size = System::Drawing::Size(38, 20);
+			this->txtIdSale->TabIndex = 25;
+			// 
 			// CustomerRatingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->ClientSize = System::Drawing::Size(484, 308);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->txtIdSale);
 			this->Controls->Add(this->btnFinalize);
-			this->Controls->Add(this->txtDeliverymanRating);
+			this->Controls->Add(this->txtCustomerRating);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->txtDeliverymanName);
+			this->Controls->Add(this->txtCustomerName);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -220,8 +250,11 @@ namespace AppView {
 			this->Controls->Add(this->pbThreeStars);
 			this->Controls->Add(this->pbFourStars);
 			this->Controls->Add(this->pbFiveStars);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"CustomerRatingForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"CustomerRatingForm";
+			this->Load += gcnew System::EventHandler(this, &CustomerRatingForm::CustomerRatingForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbZeroStars))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbOneStar))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbTwoStars))->EndInit();
@@ -233,5 +266,85 @@ namespace AppView {
 
 		}
 #pragma endregion
-	};
+	private: System::Void CustomerRatingForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		Refreshpage();
+	}
+		   void Refreshpage() {
+			   int idsale = Int32::Parse(txtIdSale->Text);
+			   Order^ order = AppManager::QueryOrderbyId(idsale);
+			   txtCustomerName->Text = order->User->FirstName + " " + order->User->LastName;
+
+		   }
+private: System::Void txtCustomerRating_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	if (txtCustomerRating->Text->CompareTo("") == 0) {
+		pbZeroStars->Visible = true;
+		pbOneStar->Visible = false; pbTwoStars->Visible = false; pbThreeStars->Visible = false;
+		pbFourStars->Visible = false;   pbFiveStars->Visible = false;
+	}
+	else if (Int32::Parse(txtCustomerRating->Text) == 1 |
+		Int32::Parse(txtCustomerRating->Text) == 2 |
+		Int32::Parse(txtCustomerRating->Text) == 3 |
+		Int32::Parse(txtCustomerRating->Text) == 4 |
+		Int32::Parse(txtCustomerRating->Text) == 5) {
+		switch (Int32::Parse(txtCustomerRating->Text)) {
+
+		case 1:
+			pbZeroStars->Visible = false;
+			pbOneStar->Visible = true; pbTwoStars->Visible = false; pbThreeStars->Visible = false;
+			pbFourStars->Visible = false;   pbFiveStars->Visible = false;
+			break;
+		case 2:
+			pbZeroStars->Visible = false;
+			pbOneStar->Visible = false; pbTwoStars->Visible = true; pbThreeStars->Visible = false;
+			pbFourStars->Visible = false;   pbFiveStars->Visible = false;
+			break;
+		case 3:
+			pbZeroStars->Visible = false;
+			pbOneStar->Visible = false; pbTwoStars->Visible = false; pbThreeStars->Visible = true;
+			pbFourStars->Visible = false;   pbFiveStars->Visible = false;
+			break;
+		case 4:
+			pbZeroStars->Visible = false;
+			pbOneStar->Visible = false; pbTwoStars->Visible = false; pbThreeStars->Visible = false;
+			pbFourStars->Visible = true;   pbFiveStars->Visible = false;
+			break;
+		case 5:
+			pbZeroStars->Visible = false;
+			pbOneStar->Visible = false; pbTwoStars->Visible = false; pbThreeStars->Visible = false;
+			pbFourStars->Visible = false;   pbFiveStars->Visible = true;
+			break;
+
+		default:
+			pbZeroStars->Visible = true;
+			pbOneStar->Visible = false; pbTwoStars->Visible = false; pbThreeStars->Visible = false;
+			pbFourStars->Visible = false;   pbFiveStars->Visible = false;
+		}
+	}
+	else MessageBox::Show("Ingrese un numero dentro del rango");
+}
+private: System::Void btnFinalize_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (Int32::Parse(txtCustomerRating->Text) == 1 |
+		Int32::Parse(txtCustomerRating->Text) == 2 |
+		Int32::Parse(txtCustomerRating->Text) == 3 |
+		Int32::Parse(txtCustomerRating->Text) == 4 |
+		Int32::Parse(txtCustomerRating->Text) == 5) {
+		int idsale = Int32::Parse(txtIdSale->Text);
+		Order^ order = AppManager::QueryOrderbyId(idsale);
+		order->CustomerRating = Int32::Parse(txtCustomerRating->Text);
+		
+		AppManager::UpdateCustomerQualification(order);
+
+		this->Close();
+
+		
+		
+
+	}
+	else {
+		MessageBox::Show("Ingrese un valor entero");
+	}
+}
+};
 }

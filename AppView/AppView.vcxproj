@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Boleta.cpp" />
+    <ClCompile Include="BoletaCustomerForm.cpp" />
     <ClCompile Include="BonusPointsCustomerForm.cpp" />
     <ClCompile Include="BonusPointsForm.cpp" />
     <ClCompile Include="CarritoCustomerForm.cpp" />
@@ -160,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boleta.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BoletaCustomerForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="BonusPointsCustomerForm.h">
@@ -211,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Boleta.resx" />
+    <EmbeddedResource Include="BoletaCustomerForm.resx">
+      <DependentUpon>BoletaCustomerForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BonusPointsCustomerForm.resx">
       <DependentUpon>BonusPointsCustomerForm.h</DependentUpon>
     </EmbeddedResource>
