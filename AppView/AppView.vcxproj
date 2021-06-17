@@ -153,6 +153,7 @@
     <ClCompile Include="CustomerRatingForm.cpp" />
     <ClCompile Include="DeliveryForm.cpp" />
     <ClCompile Include="DeliverymanRatingForm.cpp" />
+    <ClCompile Include="IForm.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="ManagerMainForm.cpp" />
     <ClCompile Include="OrderListForm.cpp" />
@@ -194,6 +195,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DeliverymanRatingForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Login.h">
