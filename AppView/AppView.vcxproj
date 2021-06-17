@@ -222,6 +222,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AccesoUbicacionDestino.resx">
+      <DependentUpon>AccesoUbicacionDestino.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccesoUbiDes.resx" />
     <EmbeddedResource Include="Boleta.resx" />
     <EmbeddedResource Include="BoletaCustomerForm.resx">
