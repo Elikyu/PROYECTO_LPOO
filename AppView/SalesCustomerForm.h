@@ -1,5 +1,5 @@
 #pragma once
-
+#include "BoletaCustomerForm.h"
 namespace AppView {
 
 	using namespace System;
@@ -47,6 +47,16 @@ namespace AppView {
 	public:
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DeliveryMan;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Status;
+	private: System::Windows::Forms::DataGridViewImageColumn^ ViewBoleta;
+
+	public:
+
+
+
+
+	public:
+
+
 
 	public:
 
@@ -71,12 +81,14 @@ namespace AppView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(SalesCustomerForm::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dgvSales = (gcnew System::Windows::Forms::DataGridView());
 			this->txtUser = (gcnew System::Windows::Forms::TextBox());
 			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DeliveryMan = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ViewBoleta = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSales))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -92,14 +104,15 @@ namespace AppView {
 			// dgvSales
 			// 
 			this->dgvSales->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvSales->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+			this->dgvSales->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Id, this->DeliveryMan,
-					this->Status
+					this->Status, this->ViewBoleta
 			});
 			this->dgvSales->Location = System::Drawing::Point(12, 90);
 			this->dgvSales->Name = L"dgvSales";
 			this->dgvSales->Size = System::Drawing::Size(486, 153);
 			this->dgvSales->TabIndex = 1;
+			this->dgvSales->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SalesCustomerForm::dgvSales_CellContentClick);
 			// 
 			// txtUser
 			// 
@@ -126,6 +139,15 @@ namespace AppView {
 			this->Status->HeaderText = L"Estado de la venta";
 			this->Status->Name = L"Status";
 			this->Status->ReadOnly = true;
+			// 
+			// ViewBoleta
+			// 
+			this->ViewBoleta->HeaderText = L"Ver Boleta";
+			this->ViewBoleta->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"ViewBoleta.Image")));
+			this->ViewBoleta->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Stretch;
+			this->ViewBoleta->Name = L"ViewBoleta";
+			this->ViewBoleta->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			this->ViewBoleta->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			// 
 			// SalesCustomerForm
 			// 
@@ -185,5 +207,19 @@ namespace AppView {
 				   }
 			   }
 		 
+private: System::Void dgvSales_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	if (dgvSales->Rows[e->RowIndex]->Cells[3]->Selected) {
+		int selectedrowindex = dgvSales->SelectedCells[0]->RowIndex;
+		DataGridViewRow^ selectedRow = dgvSales->Rows[selectedrowindex];
+		String^ a = selectedRow->Cells[0]->Value->ToString();
+
+		BoletaCustomerForm^ form =gcnew BoletaCustomerForm();
+		form->txtIdSale->Text = a;
+		form->Show();
+		
+
+	}
+
+}
 };
 }

@@ -72,6 +72,7 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 		aForm->textNameCB->Text = userB->FirstName + " " + userB->LastName;
 		aForm->textDateTimeB->Text = sale->Date;
 		aForm->txtDocumentNumberCB->Text = userB->DocumentNumber;
+		sale->Total = Double::Parse(txtTotalSale->Text);
 		aForm->textTotalSaleB->Text = txtTotalSale->Text;
 		aForm->textIdSaleDetailB->Text = "DMC- " + (sale->Id).ToString();
 	
