@@ -132,7 +132,6 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ViewBoleta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-<<<<<<< HEAD
         iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAABGdBTUEAALGPC/xhBQAAAG9QTFRF////
         AAAA9PT0ysrKUVFRnp6excXFwsLCYmJiSkpKPT09hISEv7+/fHx86OjopqamsrKy4+PjlpaW1NTUjY2N
         KCgoREREY2NjPDw8cnJy2traTU1NaGho8PDwNDQ00NDQVlZWtbW1Dw8PHx8fLi4uWyAlOAAAA8hJREFU
@@ -604,7 +603,14 @@
         FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFF
         FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFF
         FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/2Q==
-=======
+</value>
+  </data>
+  <metadata name="ViewBoleta.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ViewBoleta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAABvUExURf///wAAAPT09MrKylFRUZ6ensXFxcLCwmJiYkpKSj09PYSEhL+/v3x8fOjo6KamprKy
         suPj45aWltTU1I2NjSgoKERERGNjYzw8PHJyctra2k1NTWhoaPDw8DQ0NNDQ0FZWVrW1tQ8PDx8fHy4u
@@ -625,7 +631,6 @@
         87//UG/pNECGZGRogAzJ9O+eMhoe2/vxZViEDMnI0AAZkpGhATIkk9/wGoE7KhjeNbO6VM+hMzIsQoZV
         kWERMqwKxXCDwkNAmZlZo/AQUNZiNDuUHoAnVMmYcxQfAEo3bHm3jdOPOSpkz8COcQ8uUR0Gi+3Qo/yq
         cjXnnGWEEEIIIYQQ4gOa5i+vakAPrqgdtwAAAABJRU5ErkJggg==
->>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 </value>
   </data>
 </root>

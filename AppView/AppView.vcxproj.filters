@@ -74,8 +74,12 @@
     <ClCompile Include="BoletaCustomerForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-<<<<<<< HEAD
-=======
+    <ClCompile Include="SalesCustomerForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="BoletaCustomerForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="ComboBoxItem2.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -85,7 +89,6 @@
     <ClCompile Include="AccesoUbicacionDestino.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
->>>>>>> 02016b336340f69b4f8697772703e57bc491247a
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CustomerMainForm.h">
@@ -142,8 +145,6 @@
     <ClInclude Include="BoletaCustomerForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-<<<<<<< HEAD
-=======
     <ClInclude Include="ComboBoxItem2.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -153,7 +154,12 @@
     <ClInclude Include="AccesoUbicacionDestino.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
->>>>>>> 02016b336340f69b4f8697772703e57bc491247a
+    <ClInclude Include="SalesCustomerForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="BoletaCustomerForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Boleta.resx">
