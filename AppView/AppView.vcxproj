@@ -140,6 +140,7 @@
     <Image Include="btnreset.Image.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccesoUbicacionDestino.cpp" />
     <ClCompile Include="AccesoUbiDes.cpp" />
     <ClCompile Include="Boleta.cpp" />
     <ClCompile Include="BoletaCustomerForm.cpp" />
@@ -162,6 +163,9 @@
     <ClCompile Include="Ubicacion.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AccesoUbicacionDestino.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AccesoUbiDes.h" />
     <ClInclude Include="Boleta.h">
       <FileType>CppForm</FileType>
