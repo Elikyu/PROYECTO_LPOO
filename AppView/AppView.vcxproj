@@ -140,16 +140,20 @@
     <Image Include="btnreset.Image.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccesoUbicacionDestino.cpp" />
+    <ClCompile Include="AccesoUbiDes.cpp" />
     <ClCompile Include="Boleta.cpp" />
     <ClCompile Include="BoletaCustomerForm.cpp" />
     <ClCompile Include="BonusPointsCustomerForm.cpp" />
     <ClCompile Include="BonusPointsForm.cpp" />
     <ClCompile Include="CarritoCustomerForm.cpp" />
     <ClCompile Include="ComboBoxItem.cpp" />
+    <ClCompile Include="ComboBoxItem2.cpp" />
     <ClCompile Include="CustomerMainForm.cpp" />
     <ClCompile Include="CustomerRatingForm.cpp" />
     <ClCompile Include="DeliveryForm.cpp" />
     <ClCompile Include="DeliverymanRatingForm.cpp" />
+    <ClCompile Include="IForm.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="ManagerMainForm.cpp" />
     <ClCompile Include="OrderListForm.cpp" />
@@ -160,6 +164,10 @@
     <ClCompile Include="Ubicacion.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AccesoUbicacionDestino.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AccesoUbiDes.h" />
     <ClInclude Include="Boleta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -176,6 +184,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ComboBoxItem.h" />
+    <ClInclude Include="ComboBoxItem2.h" />
     <ClInclude Include="CustomerMainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -186,6 +195,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DeliverymanRatingForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Login.h">
@@ -214,6 +226,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AccesoUbicacionDestino.resx">
+      <DependentUpon>AccesoUbicacionDestino.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccesoUbiDes.resx" />
     <EmbeddedResource Include="Boleta.resx" />
     <EmbeddedResource Include="BoletaCustomerForm.resx">
       <DependentUpon>BoletaCustomerForm.h</DependentUpon>

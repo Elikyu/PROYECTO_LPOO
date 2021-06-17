@@ -1,6 +1,9 @@
 #pragma once
 #include "BoletaCustomerForm.h"
+<<<<<<< HEAD
 #include "DeliverymanRatingForm.h"
+=======
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 namespace AppView {
 
 	using namespace System;
@@ -49,6 +52,7 @@ namespace AppView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DeliveryMan;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Status;
 	private: System::Windows::Forms::DataGridViewImageColumn^ ViewBoleta;
+<<<<<<< HEAD
 	private: System::Windows::Forms::DataGridViewImageColumn^ Confirm;
 	private: System::Windows::Forms::Button^ refresh;
 
@@ -62,6 +66,8 @@ namespace AppView {
 
 
 
+=======
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 
 	public:
 
@@ -102,9 +108,12 @@ namespace AppView {
 			this->DeliveryMan = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ViewBoleta = (gcnew System::Windows::Forms::DataGridViewImageColumn());
+<<<<<<< HEAD
 			this->Confirm = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->txtUser = (gcnew System::Windows::Forms::TextBox());
 			this->refresh = (gcnew System::Windows::Forms::Button());
+=======
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSales))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -120,15 +129,32 @@ namespace AppView {
 			// dgvSales
 			// 
 			this->dgvSales->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+<<<<<<< HEAD
 			this->dgvSales->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->Id, this->DeliveryMan,
 					this->Status, this->ViewBoleta, this->Confirm
+=======
+			this->dgvSales->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				this->Id, this->DeliveryMan,
+					this->Status, this->ViewBoleta
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 			});
 			this->dgvSales->Location = System::Drawing::Point(12, 90);
 			this->dgvSales->Name = L"dgvSales";
 			this->dgvSales->Size = System::Drawing::Size(486, 307);
 			this->dgvSales->TabIndex = 1;
 			this->dgvSales->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SalesCustomerForm::dgvSales_CellContentClick);
+<<<<<<< HEAD
+=======
+			// 
+			// txtUser
+			// 
+			this->txtUser->Location = System::Drawing::Point(49, 51);
+			this->txtUser->Name = L"txtUser";
+			this->txtUser->ReadOnly = true;
+			this->txtUser->Size = System::Drawing::Size(100, 20);
+			this->txtUser->TabIndex = 2;
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 			// 
 			// Id
 			// 
@@ -157,6 +183,7 @@ namespace AppView {
 			this->ViewBoleta->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->ViewBoleta->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			// 
+<<<<<<< HEAD
 			// Confirm
 			// 
 			this->Confirm->HeaderText = L"Con.entrega";
@@ -184,6 +211,8 @@ namespace AppView {
 			this->refresh->UseVisualStyleBackColor = true;
 			this->refresh->Click += gcnew System::EventHandler(this, &SalesCustomerForm::refresh_Click);
 			// 
+=======
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 			// SalesCustomerForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -246,6 +275,7 @@ namespace AppView {
 			   }
 		 
 private: System::Void dgvSales_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+<<<<<<< HEAD
 	if ((dgvSales->Rows[e->RowIndex]->Cells[4]->Selected) && dgvSales->Rows[e->RowIndex]->Cells[2]->Value =="EN CAMINO") {
 		int selectedrowindex = dgvSales->SelectedCells[0]->RowIndex;
 		DataGridViewRow^ selectedRow = dgvSales->Rows[selectedrowindex];
@@ -258,22 +288,36 @@ private: System::Void dgvSales_CellContentClick(System::Object^ sender, System::
 	}
 
 
+=======
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 	if (dgvSales->Rows[e->RowIndex]->Cells[3]->Selected) {
 		int selectedrowindex = dgvSales->SelectedCells[0]->RowIndex;
 		DataGridViewRow^ selectedRow = dgvSales->Rows[selectedrowindex];
 		String^ a = selectedRow->Cells[0]->Value->ToString();
+<<<<<<< HEAD
 		RefreshDGVSales();
 		BoletaCustomerForm^ form =gcnew BoletaCustomerForm();
 		form->txtIdSale->Text = a;
 		form->Show();
 		
 		
+=======
+
+		BoletaCustomerForm^ form =gcnew BoletaCustomerForm();
+		form->txtIdSale->Text = a;
+
+		form->Show();
+		
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 
 	}
 
 }
+<<<<<<< HEAD
 private: System::Void refresh_Click(System::Object^ sender, System::EventArgs^ e) {
 	RefreshDGVSales();
 }
+=======
+>>>>>>> 02016b336340f69b4f8697772703e57bc491247a
 };
 }

@@ -1,22 +1,31 @@
 #include "CarritoCustomerForm.h"
 #include "Login.h"
+#include "Ubicacion.h"
 
+
+System::Void AppView::CarritoCustomerForm::btnASCustom_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	Ubicacion^ aForm = gcnew Ubicacion();
+	int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
+	User^ u = UserManager::QueryUserbyId(customerId);
+	aForm->txtAddressC->Text = u->Address;
+	aForm->txtUSER->Text = u->Username;
+	aForm->ShowDialog();
+}
 
 int AppView::CarritoCustomerForm::ValidateInfo() {
 	//-1: No se ha elegido una direccion
     //-2: La fecha es menor a la fecha actual
     //-3: No hay un total
     //-4: No se ha elegido un metodo de pago
-	if (txtSAddres->Text =="")
-		return -1;
+	//if (txtSAddres->Text =="")
+	//	return -1;
 	if (dtpSaleDate->Value <= DateTime::Today.AddDays(-1))
 		return -2;
-	if (txtTotalSale->Text == "" || Double::Parse(txtTotalSale->Text) <= 0) {
+	if (txtTotalSale->Text == "" || Double::Parse(txtTotalSale->Text) <= 0)
 		return -3;
-	}
 	if (cmbTypePayment->SelectedIndex < 0)
 		return -4;
-	return 1;
 }
 
 System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -27,12 +36,11 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 	 if (validatedData == -2) {
 		MessageBox::Show("La fecha no debe ser anterior a la fecha actual.");
 	}
-	else if (validatedData == -3) {
+	if (validatedData == -3) {
 		MessageBox::Show("El total debe ser mayor a cero.");
+	}if (validatedData == -4) {
+	    MessageBox::Show("Debe seleccionar un método de pago.");
 	}
-	//else if (validatedData == -4) {
-		//MessageBox::Show("Debe seleccionar un método de pago.");
-	//}
 
 	else {
 
@@ -44,6 +52,15 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 		DateTime dt = dtpSaleDate->Value;
 		sale->Date = dt.Now + "" ; // ToString();
 		sale->Total = Double::Parse(txtTotalSale->Text);
+		//g
+		char pt;
+		//String^ Tarjeta = ((ComboBoxItem2^)cmbTypePayment->SelectedItem)->Name->ToString();
+		String^ Tarjeta = ("Tarjeta");
+		if (Tarjeta == "Tarjeta") {
+			char pt = 'T';
+		}
+		sale->PaymentType = pt;
+		///g
 		sale->Details = gcnew List<SaleDetail^>();
 		
 		SaleDetail^ saledetail;
@@ -56,9 +73,13 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 			saledetail->Quantity = Double::Parse(dgvCarrito->Rows[i]->Cells[1]->Value->ToString());
 			saledetail->UnitPrice = Double::Parse(dgvCarrito->Rows[i]->Cells[2]->Value->ToString());
 			saledetail->SubTotal = Double::Parse(dgvCarrito->Rows[i]->Cells[3]->Value->ToString());
+			saledetail->Total = Double::Parse(txtTotalSale->Text);
 			sale->Details->Add(saledetail);
 
-			
+			double qua = Double::Parse(dgvCarrito->Rows[i]->Cells[1]->Value->ToString());
+			Product^ product = AppManager::QueryProductById(productId);
+			product->StockTotal = product->StockTotal - qua;
+			AppManager::UpdateProduct(product);
 		}
 		
 		
@@ -75,6 +96,8 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 		sale->Total = Double::Parse(txtTotalSale->Text);
 		aForm->textTotalSaleB->Text = txtTotalSale->Text;
 		aForm->textIdSaleDetailB->Text = "DMC- " + (sale->Id).ToString();
+		aForm->textTypePaymentB->Text = "Tarjeta";
+
 	
 
 		AppManager::RegisterSale(sale);

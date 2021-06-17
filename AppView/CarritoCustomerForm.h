@@ -1,7 +1,8 @@
 #pragma once
-#include "Ubicacion.h"
+
 #include "ProductsCustomerForm.h"
 #include "ComboBoxItem.h"
+#include "ComboBoxItem2.h"
 #include "Boleta.h"
 
 
@@ -90,7 +91,9 @@ namespace AppView {
 	private: System::Windows::Forms::DateTimePicker^ dtpSaleDate;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::ComboBox^ cmbTypePayment;
-	private: System::Windows::Forms::TextBox^ txtSAddres;
+	public: System::Windows::Forms::TextBox^ txtSAddres;
+	private:
+
 	
 	private:
 
@@ -396,7 +399,7 @@ namespace AppView {
 			this->Controls->Add(this->dgvCarrito);
 			this->Controls->Add(this->label6);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-
+//			this->Name = L"CarritoCustomerForm";
 			this->Text = L"CarritoCustomerForm";
 			this->Load += gcnew System::EventHandler(this, &CarritoCustomerForm::CarritoCustomerForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCarrito))->EndInit();
@@ -408,29 +411,33 @@ namespace AppView {
 
 
 private: System::Void CarritoCustomerForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	LoadCmbCustomer();
+	LoadCmbPayment();
 	LoadCmbBoints();
 	RefreshDGVCarrito();
-	
+
 	
 }
 
-void LoadCmbCustomer() {
-	//cmbB->Items->Clear();
-	Customer^ c = gcnew Customer();
-	//for(int i=0; customerList->Count;i++)
-	//cmbBoxASUbication->Items->Add(gcnew ComboBoxItem(c->Address, "Mi dirección"));
-    //cmbBoxASUbication->Items->Add(gcnew ComboBoxItem(c->Address,"Personalizar"));
+void LoadCmbPayment() {
+    cmbTypePayment->Items->Add(gcnew ComboBoxItem2("Tarjeta"));
 
 }
 void LoadCmbBoints() {
-	cmbBoxBPSelect->Items->Clear();
+	cmbBoxBPSelect->Items->Clear(); 
 	List<BonusPoints^>^ bpList = AppManager::QueryAllBonusPointsPQ();
 	for (int i = 0; i< bpList->Count; i++)
 		cmbBoxBPSelect->Items->Add(gcnew ComboBoxItem(bpList[i]->PointsQuantity, ""));
+	/*
+	int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
+	Customer^ c = UserManager::QueryCustomerbyId(customerId);
+	//int iniCbp = 0;
+	c->CustomerPoints = 0;
+	txtBPAvailable->Text = "" + c->CustomerPoints;
+	*/
 }
 
 public: void RefreshDGVCarrito() {
+
 			   List <Product^>^ productList = AppManager::QueryAllCarrito();
 			   dgvCarrito->Rows->Clear();
 			   for (int i = 0; i < productList->Count; i++) {
@@ -446,22 +453,32 @@ public: void RefreshDGVCarrito() {
 				    txtTotalSale->Text = "" + total;
 			   }
 		   }
-private: System::Void btnASCustom_Click(System::Object^ sender, System::EventArgs^ e) {
-	Ubicacion^ aForm = gcnew Ubicacion();
-	aForm->ShowDialog();
-}
+private: System::Void btnASCustom_Click(System::Object^ sender, System::EventArgs^ e);
+
 private: System::Void dgvCarrito_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	if (dgvCarrito->Columns[e->ColumnIndex]->Name == "Quantity") {
 		if (dgvCarrito->CurrentCell != nullptr &&
 			dgvCarrito->CurrentCell->Value != nullptr &&
 			dgvCarrito->CurrentCell->Value->ToString() != "") {
-			dgvCarrito->Rows[e->RowIndex]->Cells[3]->Value =
-				Int32::Parse(dgvCarrito->CurrentCell->Value->ToString())*Double::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[2]->Value->ToString());
-			cantidad = Int32::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[1]->Value->ToString());
-			double total = 0;
-			for (int i = 0; i < dgvCarrito->RowCount; i++)
-				total += Double::Parse(dgvCarrito->Rows[i]->Cells[3]->Value->ToString());
-			txtTotalSale->Text = "" + total;
+
+			String^ product =dgvCarrito->Rows[e->RowIndex]->Cells[0]->Value->ToString();
+			int productId = AppManager::ReturnIDbyProductName(product);
+			Product^ p = AppManager::QueryProductById(productId);
+			if (p->StockTotal >= Int32::Parse(dgvCarrito->CurrentCell->Value->ToString())) {
+
+				dgvCarrito->Rows[e->RowIndex]->Cells[3]->Value =
+					Int32::Parse(dgvCarrito->CurrentCell->Value->ToString()) * Double::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[2]->Value->ToString());
+				cantidad = Int32::Parse(dgvCarrito->Rows[e->RowIndex]->Cells[1]->Value->ToString());
+				double total = 0;
+				for (int i = 0; i < dgvCarrito->RowCount; i++)
+					total += Double::Parse(dgvCarrito->Rows[i]->Cells[3]->Value->ToString());
+				txtTotalSale->Text = "" + total;
+			}
+			else {
+				MessageBox::Show("El producto de " + p->Name +" presenta solo el siguiente Stock: " + p->StockTotal);
+				dgvCarrito->CurrentCell->Value = "1";
+
+			}
 		}
 
 	}
