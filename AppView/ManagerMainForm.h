@@ -4,6 +4,7 @@
 #include "StatisticsForm.h"
 #include "ProductInventoryForm.h"
 #include "BonusPointsForm.h"
+#include "AllRatingsForm.h"
 
 namespace AppView {
 
@@ -384,6 +385,7 @@ namespace AppView {
 			this->btnRating->Textcolor = System::Drawing::Color::White;
 			this->btnRating->TextFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->btnRating->Click += gcnew System::EventHandler(this, &ManagerMainForm::btnRating_Click);
 			// 
 			// lineSidebar
 			// 
@@ -513,6 +515,9 @@ namespace AppView {
 		}
 		private: System::Void btnBonusPoints_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->AbrirPanel(gcnew AppView::BonusPointsForm);
+		}
+		private: System::Void btnRating_Click(System::Object^ sender, System::EventArgs^ e) {
+			this->AbrirPanel(gcnew AppView::AllRatingsForm);
 		}
 	};
 }

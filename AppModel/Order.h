@@ -15,6 +15,7 @@ namespace AppModel {
     public ref class Order {
     public:
         property String^ Product;
+        property String^ DeliverymanName;
         property double Quantity;
         property char Status;  // en espera, entregado, en camino
         property String^ Date;
