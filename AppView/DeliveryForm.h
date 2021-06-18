@@ -1,6 +1,7 @@
 #pragma once
 #include "Login.h"
 #include "OrderListForm.h"
+#include "AccesoUbicacionDestino.h"
 
 namespace AppView {
 
@@ -122,23 +123,26 @@ namespace AppView {
 			this->SideBarWrapper->Controls->Add(this->lineSidebar);
 			this->SideBarWrapper->Controls->Add(this->btnSignoff);
 			this->SideBarWrapper->Controls->Add(this->btnSale);
-			this->SideBarWrapper->Location = System::Drawing::Point(0, 66);
+			this->SideBarWrapper->Location = System::Drawing::Point(0, 102);
+			this->SideBarWrapper->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->SideBarWrapper->Name = L"SideBarWrapper";
-			this->SideBarWrapper->Size = System::Drawing::Size(165, 415);
+			this->SideBarWrapper->Size = System::Drawing::Size(248, 638);
 			this->SideBarWrapper->TabIndex = 0;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(12, 48);
+			this->textBox2->Location = System::Drawing::Point(18, 74);
+			this->textBox2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(140, 20);
+			this->textBox2->Size = System::Drawing::Size(208, 26);
 			this->textBox2->TabIndex = 13;
 			// 
 			// txtDeliverymanUserName
 			// 
-			this->txtDeliverymanUserName->Location = System::Drawing::Point(29, 10);
+			this->txtDeliverymanUserName->Location = System::Drawing::Point(44, 15);
+			this->txtDeliverymanUserName->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtDeliverymanUserName->Name = L"txtDeliverymanUserName";
-			this->txtDeliverymanUserName->Size = System::Drawing::Size(99, 20);
+			this->txtDeliverymanUserName->Size = System::Drawing::Size(146, 26);
 			this->txtDeliverymanUserName->TabIndex = 12;
 			// 
 			// bunifuSeparator1
@@ -149,9 +153,10 @@ namespace AppView {
 			this->bunifuSeparator1->LineColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(105)), static_cast<System::Int32>(static_cast<System::Byte>(105)), static_cast<System::Int32>(static_cast<System::Byte>(105)));
 			this->bunifuSeparator1->LineThickness = 2;
-			this->bunifuSeparator1->Location = System::Drawing::Point(3, 316);
+			this->bunifuSeparator1->Location = System::Drawing::Point(4, 486);
+			this->bunifuSeparator1->Margin = System::Windows::Forms::Padding(6, 8, 6, 8);
 			this->bunifuSeparator1->Name = L"bunifuSeparator1";
-			this->bunifuSeparator1->Size = System::Drawing::Size(149, 36);
+			this->bunifuSeparator1->Size = System::Drawing::Size(224, 55);
 			this->bunifuSeparator1->TabIndex = 11;
 			this->bunifuSeparator1->Transparency = 150;
 			this->bunifuSeparator1->Vertical = false;
@@ -177,19 +182,21 @@ namespace AppView {
 			this->bunifuFlatButton1->IconVisible = true;
 			this->bunifuFlatButton1->IconZoom = 90;
 			this->bunifuFlatButton1->IsTab = false;
-			this->bunifuFlatButton1->Location = System::Drawing::Point(25, 174);
+			this->bunifuFlatButton1->Location = System::Drawing::Point(38, 268);
+			this->bunifuFlatButton1->Margin = System::Windows::Forms::Padding(6, 8, 6, 8);
 			this->bunifuFlatButton1->Name = L"bunifuFlatButton1";
 			this->bunifuFlatButton1->Normalcolor = System::Drawing::Color::Transparent;
 			this->bunifuFlatButton1->OnHovercolor = System::Drawing::Color::Transparent;
 			this->bunifuFlatButton1->OnHoverTextColor = System::Drawing::Color::White;
 			this->bunifuFlatButton1->selected = false;
-			this->bunifuFlatButton1->Size = System::Drawing::Size(131, 30);
+			this->bunifuFlatButton1->Size = System::Drawing::Size(196, 46);
 			this->bunifuFlatButton1->TabIndex = 10;
 			this->bunifuFlatButton1->Text = L"MAPA";
 			this->bunifuFlatButton1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->bunifuFlatButton1->Textcolor = System::Drawing::Color::White;
 			this->bunifuFlatButton1->TextFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->bunifuFlatButton1->Click += gcnew System::EventHandler(this, &DeliveryForm::bunifuFlatButton1_Click);
 			// 
 			// lineSidebar
 			// 
@@ -199,9 +206,10 @@ namespace AppView {
 			this->lineSidebar->LineColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(150)), static_cast<System::Int32>(static_cast<System::Byte>(105)),
 				static_cast<System::Int32>(static_cast<System::Byte>(105)), static_cast<System::Int32>(static_cast<System::Byte>(105)));
 			this->lineSidebar->LineThickness = 2;
-			this->lineSidebar->Location = System::Drawing::Point(7, 132);
+			this->lineSidebar->Location = System::Drawing::Point(10, 203);
+			this->lineSidebar->Margin = System::Windows::Forms::Padding(6, 8, 6, 8);
 			this->lineSidebar->Name = L"lineSidebar";
-			this->lineSidebar->Size = System::Drawing::Size(149, 36);
+			this->lineSidebar->Size = System::Drawing::Size(224, 55);
 			this->lineSidebar->TabIndex = 9;
 			this->lineSidebar->Transparency = 150;
 			this->lineSidebar->Vertical = false;
@@ -211,9 +219,10 @@ namespace AppView {
 			this->btnSignoff->FlatAppearance->BorderSize = 0;
 			this->btnSignoff->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnSignoff->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnSignoff->Location = System::Drawing::Point(-10, 344);
+			this->btnSignoff->Location = System::Drawing::Point(-15, 529);
+			this->btnSignoff->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnSignoff->Name = L"btnSignoff";
-			this->btnSignoff->Size = System::Drawing::Size(182, 68);
+			this->btnSignoff->Size = System::Drawing::Size(273, 105);
 			this->btnSignoff->TabIndex = 8;
 			this->btnSignoff->Text = L"CERRAR SESIÓN";
 			this->btnSignoff->UseVisualStyleBackColor = true;
@@ -240,13 +249,14 @@ namespace AppView {
 			this->btnSale->IconVisible = true;
 			this->btnSale->IconZoom = 90;
 			this->btnSale->IsTab = false;
-			this->btnSale->Location = System::Drawing::Point(25, 96);
+			this->btnSale->Location = System::Drawing::Point(38, 148);
+			this->btnSale->Margin = System::Windows::Forms::Padding(6, 8, 6, 8);
 			this->btnSale->Name = L"btnSale";
 			this->btnSale->Normalcolor = System::Drawing::Color::Transparent;
 			this->btnSale->OnHovercolor = System::Drawing::Color::Transparent;
 			this->btnSale->OnHoverTextColor = System::Drawing::Color::White;
 			this->btnSale->selected = false;
-			this->btnSale->Size = System::Drawing::Size(131, 30);
+			this->btnSale->Size = System::Drawing::Size(196, 46);
 			this->btnSale->TabIndex = 5;
 			this->btnSale->Text = L"LISTA DE PEDIDOS";
 			this->btnSale->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -267,17 +277,19 @@ namespace AppView {
 			this->panel2->Controls->Add(this->Title);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(0, 0);
+			this->panel2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(675, 66);
+			this->panel2->Size = System::Drawing::Size(1012, 102);
 			this->panel2->TabIndex = 1;
 			// 
 			// btnReset
 			// 
 			this->btnReset->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->btnReset->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnReset.Image")));
-			this->btnReset->Location = System::Drawing::Point(595, 19);
+			this->btnReset->Location = System::Drawing::Point(892, 29);
+			this->btnReset->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(30, 30);
+			this->btnReset->Size = System::Drawing::Size(45, 46);
 			this->btnReset->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->btnReset->TabIndex = 5;
 			this->btnReset->TabStop = false;
@@ -288,9 +300,10 @@ namespace AppView {
 			// 
 			this->btnClose->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->btnClose->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnClose.Image")));
-			this->btnClose->Location = System::Drawing::Point(631, 19);
+			this->btnClose->Location = System::Drawing::Point(946, 29);
+			this->btnClose->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnClose->Name = L"btnClose";
-			this->btnClose->Size = System::Drawing::Size(30, 30);
+			this->btnClose->Size = System::Drawing::Size(45, 46);
 			this->btnClose->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->btnClose->TabIndex = 6;
 			this->btnClose->TabStop = false;
@@ -300,9 +313,10 @@ namespace AppView {
 			// 
 			this->btnMax->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->btnMax->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMax.Image")));
-			this->btnMax->Location = System::Drawing::Point(595, 19);
+			this->btnMax->Location = System::Drawing::Point(892, 29);
+			this->btnMax->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnMax->Name = L"btnMax";
-			this->btnMax->Size = System::Drawing::Size(30, 30);
+			this->btnMax->Size = System::Drawing::Size(45, 46);
 			this->btnMax->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->btnMax->TabIndex = 1;
 			this->btnMax->TabStop = false;
@@ -311,9 +325,10 @@ namespace AppView {
 			// 
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(25, 10);
+			this->pictureBox1->Location = System::Drawing::Point(38, 15);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(50, 50);
+			this->pictureBox1->Size = System::Drawing::Size(75, 77);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 3;
 			this->pictureBox1->TabStop = false;
@@ -322,9 +337,10 @@ namespace AppView {
 			// 
 			this->btnMin->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->btnMin->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMin.Image")));
-			this->btnMin->Location = System::Drawing::Point(559, 19);
+			this->btnMin->Location = System::Drawing::Point(838, 29);
+			this->btnMin->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnMin->Name = L"btnMin";
-			this->btnMin->Size = System::Drawing::Size(30, 30);
+			this->btnMin->Size = System::Drawing::Size(45, 46);
 			this->btnMin->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->btnMin->TabIndex = 4;
 			this->btnMin->TabStop = false;
@@ -336,28 +352,31 @@ namespace AppView {
 			this->Title->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Title->ForeColor = System::Drawing::Color::Transparent;
-			this->Title->Location = System::Drawing::Point(105, 19);
+			this->Title->Location = System::Drawing::Point(158, 29);
+			this->Title->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->Title->Name = L"Title";
-			this->Title->Size = System::Drawing::Size(126, 23);
+			this->Title->Size = System::Drawing::Size(195, 37);
 			this->Title->TabIndex = 2;
 			this->Title->Text = L"DELIMARKET";
 			// 
 			// Wrapper
 			// 
-			this->Wrapper->Location = System::Drawing::Point(171, 72);
+			this->Wrapper->Location = System::Drawing::Point(256, 111);
+			this->Wrapper->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Wrapper->Name = L"Wrapper";
-			this->Wrapper->Size = System::Drawing::Size(504, 400);
+			this->Wrapper->Size = System::Drawing::Size(756, 615);
 			this->Wrapper->TabIndex = 1;
 			// 
 			// DeliveryForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(675, 475);
+			this->ClientSize = System::Drawing::Size(1012, 731);
 			this->Controls->Add(this->Wrapper);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->SideBarWrapper);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"DeliveryForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"DeliveryForm";
@@ -425,5 +444,9 @@ namespace AppView {
 				this->AbrirPanel(orderListForm);
 				
 		}
+private: System::Void bunifuFlatButton1_Click(System::Object^ sender, System::EventArgs^ e) {
+	AccesoUbicacionDestino^ accesoubicaciondestino = gcnew AccesoUbicacionDestino();
+	this->AbrirPanel(accesoubicaciondestino);
+}
 };
 }
