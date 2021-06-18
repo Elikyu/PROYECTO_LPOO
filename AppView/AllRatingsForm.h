@@ -231,6 +231,6 @@ namespace AppView {
 							   "" + orderCList[i]->CustomerRating
 					   });
 				   }
-			   }
+			   }	//
 };
 }
