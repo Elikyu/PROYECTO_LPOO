@@ -98,7 +98,23 @@ System::Void AppView::CarritoCustomerForm::btnRegisterSale_Click(System::Object^
 		aForm->textIdSaleDetailB->Text = "DMC- " + (sale->Id).ToString();
 		aForm->textTypePaymentB->Text = "Tarjeta";
 
-	
+		Customer^ customerB = UserManager::QueryCustomerbyId(customerId);
+		List<BonusPoints^>^ bonuspointsList = AppManager::QueryAllBonusPointsPQ();
+		for (int i = 0; i < bonuspointsList->Count; i++) {
+			bonuspointsList[i]->PointsQuantity;
+			bonuspointsList[i]->PercentageDiscount;
+			bonuspointsList[i]->SolesQuantity;
+			bonuspointsList[i]->PointsEarned;
+		
+			if (bonuspointsList[2]->SolesQuantity <= sale->Total) {
+				customerB->CustomerPoints = customerB->CustomerPoints + bonuspointsList[2]->PointsEarned;
+				int a = customerB->Id;
+			}
+		}
+		
+		
+		
+
 
 		AppManager::RegisterSale(sale);
 		MessageBox::Show("Se ha registrado la venta exitosamente para el cliente: " + textUserNameCS->Text);

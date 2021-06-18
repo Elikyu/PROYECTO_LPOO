@@ -288,6 +288,11 @@ void AppController::UserManager::AddCustomers(Customer^ customer)
 	DBController::AddCustomers(customer);
 }
 
+void AppController::UserManager::UpdateCustomer(Customer^ customer)
+{
+	DBController::UpdateCustomer(customer);
+}
+
 
 
 /*DeliveryMan*/

@@ -414,6 +414,11 @@ private: System::Void CarritoCustomerForm_Load(System::Object^ sender, System::E
 	LoadCmbPayment();
 	LoadCmbBoints();
 	RefreshDGVCarrito();
+	
+int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
+Customer^ c = UserManager::QueryCustomerbyId(customerId);
+txtBPAvailable->Text = "" + c->CustomerPoints;
+
 
 	
 }
@@ -427,13 +432,7 @@ void LoadCmbBoints() {
 	List<BonusPoints^>^ bpList = AppManager::QueryAllBonusPointsPQ();
 	for (int i = 0; i< bpList->Count; i++)
 		cmbBoxBPSelect->Items->Add(gcnew ComboBoxItem(bpList[i]->PointsQuantity, ""));
-	/*
-	int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
-	Customer^ c = UserManager::QueryCustomerbyId(customerId);
-	//int iniCbp = 0;
-	c->CustomerPoints = 0;
-	txtBPAvailable->Text = "" + c->CustomerPoints;
-	*/
+
 }
 
 public: void RefreshDGVCarrito() {
