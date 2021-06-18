@@ -417,7 +417,7 @@ private: System::Void CarritoCustomerForm_Load(System::Object^ sender, System::E
 	
 int customerId = UserManager::ReturnIDbyUserName(textUserNameCS->Text);
 Customer^ c = UserManager::QueryCustomerbyId(customerId);
-txtBPAvailable->Text = "" + c->CustomerPoints;
+//txtBPAvailable->Text = "" + c->CustomerPoints;
 
 
 	
