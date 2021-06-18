@@ -145,6 +145,21 @@ void AppController::AppManager::UpdateOrder(Order^ order)
 	DBController::UpdateOrder(order);
 }
 
+void AppController::AppManager::UpdateDeliverymanQualification(Order^ order)
+{
+	DBController::UpdateDeliverymanQualification(order);
+}
+
+void AppController::AppManager::UpdateCustomerQualification(Order^ order)
+{
+	DBController::UpdateCustomerQualification(order);
+}
+
+void AppController::AppManager::UpdateStatusOrder(Order^ order)
+{
+	DBController::UpdateStatusOrder(order);
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /*Bonnus Points*/
 void AppController::AppManager::AddBonusPointsPQ(BonusPoints^ bp)

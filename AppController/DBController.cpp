@@ -277,6 +277,43 @@ void AppController::DBController::UpdateOrder(Order^ order)
     }
 }
 
+void AppController::DBController::UpdateDeliverymanQualification(Order^ order)
+{
+    saleDB->LoadFromBinaryFile();
+    for (int i = 0; i <= saleDB->ListDB->Count; i++) {
+        if (saleDB->ListDB[i]->Id == order->Id) {
+            saleDB->ListDB[i]->DeliveryManRating = order->DeliveryManRating;
+            saleDB->Persist();
+            return;
+        }
+    }
+}
+
+void AppController::DBController::UpdateCustomerQualification(Order^ order)
+{
+    saleDB->LoadFromBinaryFile();
+    for (int i = 0; i <= saleDB->ListDB->Count; i++) {
+        if (saleDB->ListDB[i]->Id == order->Id) {
+            saleDB->ListDB[i]->CustomerRating = order->CustomerRating;
+            saleDB->Persist();
+            return;
+        }
+    }
+}
+
+void AppController::DBController::UpdateStatusOrder(Order^ order)
+{
+    saleDB->LoadFromBinaryFile();
+    for (int i = 0; i <= saleDB->ListDB->Count; i++) {
+        if (saleDB->ListDB[i]->Id == order->Id) {
+            saleDB->ListDB[i]->Status = order->Status;
+            saleDB->Persist();
+            return;
+        }
+    }
+  
+}
+
 /////////////////////////////////////////////////
 
 /*User*/
